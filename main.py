@@ -1,17 +1,16 @@
 from kivy.app import App
 from kivy.uix.widget import Widget
-from kivy.uix.popup import Popup
-
-
-class MyPopup(Popup):
-    pass
+from plyer import filechooser
 
 
 class HomeScreen(Widget):
 
     def pop_open_up(self):
-        pops = MyPopup()
-        pops.open()
+        path = filechooser.open_file(title="Pick a file...",
+                                     # filters=[("Comma-separated Values", "*.csv")]
+                                     )
+        # file name = first file from list, split by \, last item
+        file_name = path[0].split('\\')[-1]
 
 
 class VideoEncryptorApp(App):
