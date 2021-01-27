@@ -1,0 +1,26 @@
+#:kivy 2.0.0
+
+<HomeScreen>:
+    
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+    
+        Label:
+            text: "Encrypt Anything!"
+            font_size: 25
+
+        Button:
+            text: "Encrypt"
+            font_size: 20
+            on_press: root.pop_open_up()
+            
+<MyPopup>:
+    id: pop
+    size_hint: .4, .4
+    auto_dismiss: True
+    title: 'File Chooser'
+
+    Button:
+        text: "Click to dismiss"
+        on_press: pop.dismiss()
